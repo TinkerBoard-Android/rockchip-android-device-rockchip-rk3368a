@@ -63,4 +63,4 @@ BOARD_SENSOR_ST := true
 MALLOC_IMPL := dlmalloc
 
 # Copy RK3368 own init.rc file
-TARGET_PROVIDES_INIT_RC := true
+# TARGET_PROVIDES_INIT_RC := true
