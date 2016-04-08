@@ -42,3 +42,4 @@ ro.factory.tool=0
 #set default lcd density for rk3368-P9 tablet
 ro.sf.lcd_density=240
 ro.adb.secure =0
+media.stagefright.audio.sink=150
