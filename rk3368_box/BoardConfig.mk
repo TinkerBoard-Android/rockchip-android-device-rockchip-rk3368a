@@ -17,3 +17,4 @@ include device/rockchip/rk3368/BoardConfig.mk
 BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
+TARGET_DISASTER_RECOVERY := true
