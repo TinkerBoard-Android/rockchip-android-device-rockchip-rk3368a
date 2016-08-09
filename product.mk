@@ -20,8 +20,8 @@ PRODUCT_RUNTIMES := runtime_libart_default
 
 $(call inherit-product, device/rockchip/rk3368/device.mk)
 
-ifneq ($(filter %64, $(TARGET_PRODUCT)), )
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-else
+ifneq ($(filter %32, $(TARGET_PRODUCT)), )
 $(call inherit-product, device/rockchip/rk3368/product_32_only.mk)
+else
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 endif
