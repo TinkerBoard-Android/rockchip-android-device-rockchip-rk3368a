@@ -19,4 +19,5 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/rk3368_64.mk \
     $(LOCAL_DIR)/rk3368_32.mk \
     $(LOCAL_DIR)/rk3368_box.mk \
-    $(LOCAL_DIR)/rk3368_64_only.mk
+    $(LOCAL_DIR)/rk3368_64_only.mk \
+    $(LOCAL_DIR)/px5.mk
