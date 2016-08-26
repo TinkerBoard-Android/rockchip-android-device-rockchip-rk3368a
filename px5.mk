@@ -40,6 +40,8 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := px5
 PRODUCT_MANUFACTURER := rockchip
 
+#modem with DTS4108C
+PRODUCT_MODEM := DTS4108C
 
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
