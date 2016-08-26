@@ -27,6 +27,7 @@ $(call inherit-product, device/rockchip/rk3368/product.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_BUILD_MODULE := car
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \

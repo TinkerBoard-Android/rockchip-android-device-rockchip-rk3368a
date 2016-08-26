@@ -39,6 +39,12 @@ PRODUCT_PACKAGES += \
 #endif
 #endif
 
+ifeq ($(PRODUCT_BUILD_MODULE), car)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/px5/rockchip_access_cpu_state.ko:system/lib/modules/rockchip_access_cpu_state.ko \
+    $(LOCAL_PATH)/px5/init.car.rc:root/init.car.rc
+endif
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
