@@ -43,3 +43,8 @@ PRODUCT_MANUFACTURER := rockchip
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
+PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/px5/gps.default.so:system/lib64/hw/gps.default.so
+PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/px5/gps.conf:system/etc/gps.conf
+PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/px5/zsgps.conf:system/etc/zsgps.conf
+PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/px5/martianFW.bin:system/etc/martianFW.bin
+PRODUCT_COPY_FILES +=  $(LOCAL_PATH)/px5/miniBL.bin:system/etc/miniBL.bin
