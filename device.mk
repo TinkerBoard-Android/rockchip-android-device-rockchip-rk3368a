@@ -42,7 +42,8 @@ PRODUCT_PACKAGES += \
 ifeq ($(PRODUCT_BUILD_MODULE), car)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/px5/rockchip_access_cpu_state.ko:system/lib/modules/rockchip_access_cpu_state.ko \
-    $(LOCAL_PATH)/px5/init.car.rc:root/init.car.rc
+    $(LOCAL_PATH)/px5/init.car.rc:root/init.car.rc \
+    $(LOCAL_PATH)/px5/init.connectivity.rc:root/init.connectivity.rc
 endif
 
 PRODUCT_COPY_FILES += \
