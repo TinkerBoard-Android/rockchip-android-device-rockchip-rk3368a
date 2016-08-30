@@ -39,7 +39,7 @@ PRODUCT_PACKAGES += \
 #endif
 #endif
 
-ifeq ($(PRODUCT_BUILD_MODULE), car)
+ifneq ($(filter px5%, $(PRODUCT_BUILD_MODULE)), )
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/px5/rockchip_access_cpu_state.ko:system/lib/modules/rockchip_access_cpu_state.ko \
     $(LOCAL_PATH)/px5/init.car.rc:root/init.car.rc \
