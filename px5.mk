@@ -42,6 +42,7 @@ PRODUCT_MANUFACTURER := rockchip
 
 #modem with DTS4108C
 PRODUCT_MODEM := DTS4108C
+PRODUCT_RTK_BT_CHIP_FLOW_CTRL := false
 
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
