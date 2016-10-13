@@ -60,3 +60,5 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3368/device-vendor.mk)
 
+# add for Rogue 
+PRODUCT_PACKAGES += libdrm
