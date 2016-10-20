@@ -15,7 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rk3368.mk \
     $(LOCAL_DIR)/rk3368_64.mk \
     $(LOCAL_DIR)/rk3368_32.mk \
     $(LOCAL_DIR)/rk3368_box.mk \
