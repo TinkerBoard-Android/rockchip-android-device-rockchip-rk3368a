@@ -65,3 +65,6 @@ MALLOC_SVELTE := true
 
 # Copy RK3368 own init.rc file
 # TARGET_PROVIDES_INIT_RC := true
+
+//MAX-SIZE=2G, for generate out/.../system.img
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
