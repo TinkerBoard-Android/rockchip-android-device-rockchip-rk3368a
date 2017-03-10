@@ -52,7 +52,8 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
+    $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
@@ -62,3 +63,14 @@ $(call inherit-product-if-exists, vendor/rockchip/rk3368/device-vendor.mk)
 
 # add for Rogue 
 PRODUCT_PACKAGES += libdrm
+
+#for cts requirement
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=1 \
+    persist.sys.usb.config=mtp
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=mtp,adb
+endif
