@@ -3,6 +3,8 @@ add_lunch_combo rk3368_32-userdebug
 add_lunch_combo rk3368_box-userdebug
 add_lunch_combo rk3368_64-userdebug
 add_lunch_combo rk3368_64-user
+add_lunch_combo rk3368H_64-userdebug
+add_lunch_combo rk3368H_64-user
 add_lunch_combo rk3368_64_only-userdebug
 add_lunch_combo px5-userdebug
 add_lunch_combo px5-user
