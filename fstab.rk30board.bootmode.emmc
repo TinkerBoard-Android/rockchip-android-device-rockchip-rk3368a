@@ -11,13 +11,13 @@
 /dev/block/platform/ff0f0000.rksdmmc/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr   wait,check,notrim,encryptable=/metadata/key_file
 /dev/block/platform/ff0f0000.rksdmmc/by-name/misc          /misc                emmc        defaults      defaults
 
-/devices/ff0c0000.rksdmmc/mmc_host*         auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/ff0c0000.rksdmmc/mmc_host*         auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
 # non box product,configuration to the first item, will filter out left
 #58,54 support high speed & full speed;50 only support high speed, 5c only support full speed and must link hsic hub
-/devices/ff580000.usb*     auto vfat defaults      voldmanaged=usb:auto
-/devices/ff500000.usb*     auto vfat defaults      voldmanaged=usb:auto
-/devices/ff540000.usb*     auto vfat defaults      voldmanaged=usb:auto
-/devices/ff5c0000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff580000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff500000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff540000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff5c0000.usb*     auto vfat defaults      voldmanaged=usb:auto
 
 /dev/block/zram0                                none                swap      defaults                                              zramsize=533413200
