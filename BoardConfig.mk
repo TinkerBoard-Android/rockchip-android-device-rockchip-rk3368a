@@ -67,5 +67,12 @@ MALLOC_SVELTE := true
 # Copy RK3368 own init.rc file
 # TARGET_PROVIDES_INIT_RC := true
 
-//MAX-SIZE=2G, for generate out/.../system.img
+ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
+ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET_ALL)), true)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
+else
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+endif
+else
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
+endif
