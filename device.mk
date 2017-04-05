@@ -56,6 +56,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
 
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/package_performance.xml:system/etc/package_performance.xml
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
