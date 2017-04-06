@@ -17,5 +17,19 @@
 $(call inherit-product, $(LOCAL_PATH)/rk3368.mk)
 
 PRODUCT_NAME := rk3368H_64
-PRODUCT_DEVICE := rk3368
-PRODUCT_MODEL := rk3368H
+PRODUCT_DEVICE := rk3368H_64
+PRODUCT_MODEL := rk3368H_64
+
+
+PRODUCT_AAPT_CONFIG := normal large mdpi tvdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# google apps
+BUILD_WITH_GOOGLE_MARKET := false
+BUILD_WITH_GOOGLE_MARKET_ALL := false
+BUILD_WITH_GOOGLE_FRP := false
+
+#for drm widevine
+BUILD_WITH_WIDEVINE := true
+
+BOOT_SHUTDOWN_ANIMATION_RINGING := true

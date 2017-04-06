@@ -52,18 +52,27 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
+    $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM}.rc:root/init.${TARGET_BOARD_PLATFORM}.rc \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
 
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/package_performance.xml:system/etc/package_performance.xml
+        $(LOCAL_PATH)/package_performance.xml:system/etc/package_performance.xml \
+        $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3368/device-vendor.mk)
+
+ifeq ($(BUILD_WITH_WIDEVINE),true)
+$(call inherit-product-if-exists, vendor/widevine/widevine.mk)
+endif
+
+# Add product overlay
+PRODUCT_PACKAGE_OVERLAYS += $(TARGET_DEVICE_DIR)/overlay
 
 # add for Rogue 
 PRODUCT_PACKAGES += libdrm
