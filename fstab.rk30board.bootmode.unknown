@@ -11,7 +11,7 @@
 /dev/block/rknand_userdata                 /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr          wait,check,notrim,encryptable=/metadata/key_file
 /dev/block/rknand_misc                    /misc              mtd       defaults         defaults
 
-/devices/platform/ff0c0000.rksdmmc/mmc_host/mmc*          auto       auto       defaults        voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/ff0c0000.dwmmc/mmc_host/mmc*          auto       auto       defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
 # non box product,configuration to the first item, will filter out left
 #58,54 support high speed & full speed;50 only support high speed, 5c only support full speed and must link hsic hub
