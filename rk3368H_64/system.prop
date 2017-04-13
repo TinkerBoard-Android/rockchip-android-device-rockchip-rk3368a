@@ -43,3 +43,6 @@ ro.factory.tool=0
 ro.sf.lcd_density=240
 ro.adb.secure =1
 media.stagefright.audio.sink=150
+
+#set 4K video
+sys.video.4k=-1;
