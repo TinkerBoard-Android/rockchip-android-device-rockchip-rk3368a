@@ -1,6 +1,6 @@
 include device/rockchip/rk3368/BoardConfig.mk
 
-WITH_DEXPREOPT := false
+WITH_DEXPREOPT := true
 
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false

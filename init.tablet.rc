@@ -5,3 +5,10 @@ on boot
     write /dev/cpuset/background/cpus 3
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
+
+on init
+    # Load persistent dm-verity state
+    verity_load_state
+
+on verity-logging
+    exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2

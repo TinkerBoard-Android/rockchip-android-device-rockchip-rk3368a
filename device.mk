@@ -53,9 +53,39 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM}.rc:root/init.${TARGET_BOARD_PLATFORM}.rc \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
+
+ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.unknown:root/fstab.rk30board.bootmode.unknown \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.emmc:root/fstab.rk30board.bootmode.emmc
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc
+endif
+
+ifeq ($(strip $(PRODUCT_SYSTEM_VERITY)), true)
+# add verity dependencies
+$(call inherit-product, build/target/product/verity.mk)
+PRODUCT_SUPPORTS_BOOT_SIGNER := false
+ifeq ($(strip $(PRODUCT_FLASH_TYPE)), EMMC)
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/ff0f0000.dwmmc/by-name/system
+PRODUCT_SUPPORTS_VERITY_FEC := true
+endif
+ifeq ($(strip $(PRODUCT_FLASH_TYPE)), NAND)
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/rknand_system
+PRODUCT_SUPPORTS_VERITY_FEC := false
+endif
+
+# for warning
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
+endif
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/package_performance.xml:system/etc/package_performance.xml \
