@@ -91,6 +91,10 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/package_performance.xml:system/etc/package_performance.xml \
         $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml
 
+#vulkan version claim
+PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:system/etc/permissions/android.hardware.vulkan.level-1.xml
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
