@@ -19,7 +19,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 PRODUCT_PACKAGES += \
     WallpaperPicker \
-    Launcher3
+    Launcher3 \
+    RetailDemo
 
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
@@ -120,4 +121,17 @@ else
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.adb.secure=0 \
     persist.sys.usb.config=mtp,adb
+endif
+
+ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
+ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
+ifeq ($(strip $(PRODUCT_FLASH_TYPE)), EMMC)
+	PRODUCT_PROPERTY_OVERRIDES += \
+        ro.frp.pst=/dev/block/platform/ff0f0000.dwmmc/by-name/frp
+endif
+ifeq ($(strip $(PRODUCT_FLASH_TYPE)), NAND)
+	PRODUCT_PROPERTY_OVERRIDES += \
+        ro.frp.pst=/dev/block/rknand_frp
+endif
+endif
 endif
