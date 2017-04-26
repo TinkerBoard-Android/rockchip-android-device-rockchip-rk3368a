@@ -112,6 +112,9 @@ PRODUCT_PACKAGE_OVERLAYS += $(TARGET_DEVICE_DIR)/overlay
 # add for Rogue 
 PRODUCT_PACKAGES += libdrm
 
+#add for io debug
+PRODUCT_PACKAGES += io
+
 #for cts requirement
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += \
