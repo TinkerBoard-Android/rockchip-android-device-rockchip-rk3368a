@@ -36,6 +36,9 @@ PRODUCT_FLASH_TYPE := EMMC
 #for drm widevine
 BUILD_WITH_WIDEVINE := true
 
+#Add 3g dongle function
+BOARD_HAVE_DONGLE := false
+
 BOOT_SHUTDOWN_ANIMATION_RINGING := true
 
 BOARD_NFC_SUPPORT := false
