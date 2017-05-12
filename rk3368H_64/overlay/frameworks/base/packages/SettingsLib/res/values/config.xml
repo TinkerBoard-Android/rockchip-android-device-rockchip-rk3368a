@@ -17,6 +17,9 @@
 */
 -->
 <resources>
+    <!-- Minimum density scale. The actual scale used depends on the device..-->
+    <string name="config_min_density_scale" format="float" type="dimen">0.9</string>
+
     <!-- Maximum density scale. The actual scale used depends on the device..-->
     <string name="config_max_density_scale" format="float" type="dimen">1.33</string>
 </resources>
