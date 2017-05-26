@@ -15,10 +15,22 @@
 #
 
 $(call inherit-product, $(LOCAL_PATH)/rk3368.mk)
+$(call inherit-product, device/rockchip/common/tv/tv_base.mk)
 
+PRODUCT_CHARACTERISTICS := box
+
+PRODUCT_BRAND := rockchip
+PRODUCT_MANUFACTURER := rockchip
 PRODUCT_NAME := rk3368_box
 PRODUCT_DEVICE := rk3368_box
 PRODUCT_MODEL := rk3368-box
 
 PRODUCT_AAPT_CONFIG := normal tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
+# debug-logs
+ifneq ($(TARGET_BUILD_VARIANT),user)
+MIXIN_DEBUG_LOGS := true
+endif
+
+#for drm widevine
+BUILD_WITH_WIDEVINE := true

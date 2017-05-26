@@ -17,4 +17,25 @@ include device/rockchip/rk3368/BoardConfig.mk
 BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
-TARGET_DISASTER_RECOVERY := true
+TARGET_DISASTER_RECOVERY := false
+
+# Set system.img size
+ifeq ($(strip $(BUILD_BOX_WITH_GOOGLE_MARKET)), true)
+  BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1500000000
+else
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1500000000
+  else
+    BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1200000000
+  endif
+endif
+
+
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    WITH_DEXPREOPT := true
+  else
+    WITH_DEXPREOPT := false
+  endif
+endif
