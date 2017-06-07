@@ -78,4 +78,5 @@ else
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
 endif
 
-PRODUCT_HAVE_OPTEE := false
+#for optee support
+PRODUCT_HAVE_OPTEE ?= false

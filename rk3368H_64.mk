@@ -56,3 +56,4 @@ BOARD_USB_HOST_SUPPORT := true
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.board.device=rk3368h
 
+#PRODUCT_HAVE_OPTEE := true
