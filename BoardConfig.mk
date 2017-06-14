@@ -80,3 +80,5 @@ endif
 
 #for optee support
 PRODUCT_HAVE_OPTEE ?= false
+
+BOARD_USE_SPARSE_SYSTEM_IMAGE := true
