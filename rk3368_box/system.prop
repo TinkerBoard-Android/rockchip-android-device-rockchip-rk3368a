@@ -44,3 +44,7 @@ wifi.supplicant_scan_interval=15
 ro.factory.tool=0
 #set default lcd density for rk3368 box product
 ro.sf.lcd_density=213
+
+# displsy
+ro.rk.displayd.enable=false
+persist.sys.framebuffer.main=1920x1080
