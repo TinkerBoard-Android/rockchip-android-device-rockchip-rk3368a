@@ -34,3 +34,6 @@ endif
 
 #for drm widevine
 BUILD_WITH_WIDEVINE := true
+
+PRODUCT_PACKAGES += \
+    Lightning
