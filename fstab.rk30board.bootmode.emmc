@@ -17,6 +17,7 @@
 #58,54 support high speed & full speed;50 only support high speed, 5c only support full speed and must link hsic hub
 /devices/platform/ff580000.usb*     auto vfat defaults      voldmanaged=usb:auto
 /devices/platform/ff500000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff520000.usb*     auto vfat defaults      voldmanaged=usb:auto
 /devices/platform/ff540000.usb*     auto vfat defaults      voldmanaged=usb:auto
 /devices/platform/ff5c0000.usb*     auto vfat defaults      voldmanaged=usb:auto
 
