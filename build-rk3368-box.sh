@@ -1,7 +1,7 @@
 #!/bin/bash
 ARCH=arm64
 LUNCH=rk3368_box-userdebug
-UBOOT_DEFCONFIG=rk3368_box_defconfig
+UBOOT_DEFCONFIG=rk3368_box_kernel4.4_defconfig
 KERNEL_DEFCONFIG=rockchip_defconfig
 KERNEL_DTS=rk3368-r88
 JOBS=12
