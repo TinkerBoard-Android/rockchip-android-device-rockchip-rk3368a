@@ -35,5 +35,7 @@ endif
 #for drm widevine
 BUILD_WITH_WIDEVINE := true
 
+BOARD_WITH_MEM_OPTIMISE := true
+
 PRODUCT_PACKAGES += \
     Lightning
