@@ -18,6 +18,7 @@ BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
 TARGET_DISASTER_RECOVERY := false
+BOARD_USB_ALLOW_DEFAULT_MTP := true
 
 # Set system.img size
 ifeq ($(strip $(BUILD_BOX_WITH_GOOGLE_MARKET)), true)
