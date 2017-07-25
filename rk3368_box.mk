@@ -27,6 +27,10 @@ PRODUCT_MODEL := rk3368-box
 
 PRODUCT_AAPT_CONFIG := normal tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
+
+# enable mtp default
+BOARD_USB_ALLOW_DEFAULT_MTP := true
+
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
 MIXIN_DEBUG_LOGS := true
