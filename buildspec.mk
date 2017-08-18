@@ -29,6 +29,9 @@ TARGET_BOARD_PLATFORM_GPU ?= G6110
 ifndef TARGET_PRODUCT
 TARGET_PRODUCT:=rk3368
 endif
+ifndef TARGET_DEVICE
+TARGET_DEVICE:=rk3368
+endif
 
 # Choose a variant to build.  If you don't pick one, the default is eng.
 # User is what we ship.  Userdebug is that, with a few flags turned on
@@ -37,6 +40,12 @@ ifndef TARGET_BUILD_VARIANT
 #TARGET_BUILD_VARIANT:=user
 TARGET_BUILD_VARIANT:=userdebug
 #TARGET_BUILD_VARIANT:=eng
+endif
+
+# Choose a targeted release.  If you don't pick one, the default is the
+# soonest future release.
+ifndef TARGET_PLATFORM_RELEASE
+#TARGET_PLATFORM_RELEASE:=OPR1
 endif
 
 # Choose additional targets to always install, even when building
@@ -63,9 +72,6 @@ endif
 # to a non-empty value, the appropriate HOST_/TARGET_CUSTOM_DEBUG_CFLAGS
 # will be added to LOCAL_CFLAGS when building the module.
 #DEBUG_MODULE_ModuleName:=true
-
-# Specify an alternative tool chain prefix if needed.
-#TARGET_TOOLS_PREFIX:=
 
 # Specify the extra CFLAGS to use when building a module whose
 # DEBUG_MODULE_ variable is set.  Host and device flags are handled
@@ -96,19 +102,19 @@ ifndef NO_FALLBACK_FONT
 #NO_FALLBACK_FONT:=true
 endif
 
-# To enable instrumentation in webcore based apps like gmail and
-# the browser, define WEBCORE_INSTRUMENTATION:=true
-ifndef WEBCORE_INSTRUMENTATION
-#WEBCORE_INSTRUMENTATION:=true
-endif
-
-# To disable SVG in webcore define ENABLE_SVG:=false
-ifndef ENABLE_SVG
-#ENABLE_SVG:=false
+# OVERRIDE_RUNTIMES allows you to locally override PRODUCT_RUNTIMES.
+#
+# To only build ART, use "runtime_libart_default"
+# To use Dalvik but also include ART, use "runtime_libdvm_default runtime_libart"
+# To use ART but also include Dalvik, use "runtime_libart_default runtime_libdvm"
+ifndef OVERRIDE_RUNTIMES
+#OVERRIDE_RUNTIMES:=runtime_libart_default
+#OVERRIDE_RUNTIMES:=runtime_libdvm_default runtime_libart
+#OVERRIDE_RUNTIMES:=runtime_libart_default runtime_libdvm
 endif
 
 # when the build system changes such that this file must be updated, this
 # variable will be changed.  After you have modified this file with the new
 # changes (see buildspec.mk.default), update this to the new value from
 # buildspec.mk.default.
-BUILD_ENV_SEQUENCE_NUMBER := 10
+BUILD_ENV_SEQUENCE_NUMBER := 13

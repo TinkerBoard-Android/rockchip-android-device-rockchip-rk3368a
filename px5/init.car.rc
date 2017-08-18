@@ -1,3 +1,0 @@
-on post-fs
-    insmod system/lib/modules/rockchip_access_cpu_state.ko
-

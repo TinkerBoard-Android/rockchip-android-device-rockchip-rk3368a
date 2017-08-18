@@ -12,26 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 #
-# This file is the build configuration for an aosp Android
-# build for rockchip rk3368 hardware. This cleanly combines a set of
-# device-specific aspects (drivers) with a device-agnostic
-# product configuration (apps). Except for a few implementation
-# details, it only fundamentally contains two inherit-product
-# lines, aosp and rk3368, hence its name.
-
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 include device/rockchip/rk3368/BoardConfig.mk
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/rockchip/rk3368/product.mk)
+$(call inherit-product, device/rockchip/rk3368/device.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-        rild \
-        Launcher3
 
 PRODUCT_NAME := rk3368
 PRODUCT_DEVICE := rk3368
@@ -43,3 +31,7 @@ PRODUCT_MANUFACTURER := rockchip
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.version = 1.0.0 \
+    ro.product.ota.host = www.rockchip.com:2300
+

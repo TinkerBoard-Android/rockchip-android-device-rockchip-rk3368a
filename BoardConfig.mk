@@ -18,8 +18,6 @@
 -include vendor/rockchip/rk3368/BoardConfigVendor.mk
 -include device/rockchip/common/BoardConfig.mk
 
-TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
-
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -33,10 +31,11 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
+PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3368/overlay
+
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
-
 TARGET_BOARD_PLATFORM := rk3368
 TARGET_BOARD_PLATFORM_GPU := G6110
 BOARD_USE_DRM := true
@@ -57,28 +56,43 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 endif
 
 # Sensors
-#BOARD_SENSOR_ST := true
+BOARD_SENSOR_ST := false
+BOARD_SENSOR_MPU := false
 BOARD_SENSOR_MPU_PAD := true
-#BOARD_SENSOR_MPU_VR := true
-#BOARD_USES_GENERIC_INVENSENSE := false
 
-#MALLOC_IMPL := dlmalloc
-MALLOC_SVELTE := true
+BOARD_USES_GENERIC_INVENSENSE := false
 
-# Copy RK3368 own init.rc file
-# TARGET_PROVIDES_INIT_RC := true
 
-ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
-ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET_ALL)), true)
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
+ifneq ($(filter %box, $(TARGET_PRODUCT)), )
+TARGET_BOARD_PLATFORM_PRODUCT ?= box
 else
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+ ifneq ($(filter %vr, $(TARGET_PRODUCT)), )
+   TARGET_BOARD_PLATFORM_PRODUCT ?= vr
+else
+TARGET_BOARD_PLATFORM_PRODUCT ?= tablet
 endif
-else
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
 endif
 
-#for optee support
-PRODUCT_HAVE_OPTEE ?= false
+ENABLE_CPUSETS := true
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+    ifeq ($(TARGET_BUILD_VARIANT),user)
+        WITH_DEXPREOPT := true
+    else
+        WITH_DEXPREOPT := false
+    endif
+endif
+
+BOARD_NFC_SUPPORT := false
+BOARD_HAS_GPS := false
+
+BOARD_GRAVITY_SENSOR_SUPPORT := true
+BOARD_COMPASS_SENSOR_SUPPORT := false
+BOARD_GYROSCOPE_SENSOR_SUPPORT := true
+BOARD_PROXIMITY_SENSOR_SUPPORT := false
+BOARD_LIGHT_SENSOR_SUPPORT := false
+BOARD_PRESSURE_SENSOR_SUPPORT := false
+BOARD_TEMPERATURE_SENSOR_SUPPORT := false
+BOARD_USB_HOST_SUPPORT := true
 
 BOARD_USE_SPARSE_SYSTEM_IMAGE := true
