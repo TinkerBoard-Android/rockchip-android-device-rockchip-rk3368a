@@ -22,7 +22,8 @@ PRODUCT_PACKAGES += \
 
 #$_rbox_$_modify_$_zhengyang: add displayd
 PRODUCT_PACKAGES += \
-    displayd
+    displayd \
+    libion
 
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
