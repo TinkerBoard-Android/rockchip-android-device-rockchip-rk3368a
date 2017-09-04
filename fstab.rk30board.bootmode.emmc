@@ -4,6 +4,7 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 /dev/block/platform/ff0f0000.dwmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,resize
+/dev/block/platform/ff0f0000.dwmmc/by-name/vendor         /vendor             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,resize
 # use this line below instead to enable verity
 #/dev/block/platform/ff0f0000.rksdmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check,verify
 /dev/block/platform/ff0f0000.dwmmc/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
