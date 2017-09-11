@@ -27,6 +27,8 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := rk3368
 PRODUCT_MANUFACTURER := rockchip
 
+PRODUCT_PACKAGES += \
+    SoundRecorder
 
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
