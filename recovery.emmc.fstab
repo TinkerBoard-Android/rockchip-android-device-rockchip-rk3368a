@@ -4,6 +4,7 @@
 /dev/block/mmcblk0p1                                               /mnt/external_sd     vfat             /dev/block/mmcblk0                  defaults
 /dev/block/platform/ff0f0000.dwmmc/by-name/system                /system              ext4             defaults                  defaults
 /dev/block/platform/ff0f0000.dwmmc/by-name/vendor                /vendor              ext4             defaults                  defaults
+/dev/block/platform/ff0f0000.dwmmc/by-name/oem                   /oem                 ext4             defaults                  defaults
 /dev/block/platform/ff0f0000.dwmmc/by-name/cache                 /cache               ext4             defaults                  defaults
 /dev/block/platform/ff0f0000.dwmmc/by-name/metadata              /metadata            ext4             defaults                  defaults
 /dev/block/platform/ff0f0000.dwmmc/by-name/userdata              /data                f2fs             defaults                  defaults
