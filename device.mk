@@ -42,6 +42,14 @@ PRODUCT_COPY_FILES += \
     device/rockchip/rk3368/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml
 
+# Add for function frp
+ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
+ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
+    PRODUCT_PROPERTY_OVERRIDES += \
+        ro.frp.enable=true
+endif
+endif
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 

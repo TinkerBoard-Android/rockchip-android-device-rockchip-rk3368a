@@ -18,3 +18,9 @@ on boot
 on init
     chown root root /sys/class/devfreq/dmc/system_status
     chmod 0666 /sys/class/devfreq/dmc/system_status
+
+on property:ro.bootmode=emmc && property:ro.frp.enable=true
+    setprop ro.frp.pst /dev/block/platform/ff0f0000.dwmmc/by-name/frp
+
+on property:ro.bootmode=unknown && property:ro.frp.enable=true
+    setprop ro.frp.pst /dev/block/rknand_frp
