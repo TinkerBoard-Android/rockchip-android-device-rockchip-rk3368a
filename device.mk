@@ -55,3 +55,19 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3368/device-vendor.mk)
+
+#for enable optee support
+ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.enable.optee=true
+
+ifeq ($(strip $(PRODUCT_SYSTEM_VERITY)),true)
+PRODUCT_COPY_FILES += \
+       device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
+else
+PRODUCT_COPY_FILES += \
+       device/rockchip/common/init.optee.rc:root/init.optee.rc
+endif
+endif
+
