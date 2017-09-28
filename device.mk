@@ -50,6 +50,11 @@ ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
 endif
 endif
 
+# Setup dm-verity configs
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/ff0f0000.dwmmc/by-name/system
+PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/ff0f0000.dwmmc/by-name/vendor
+$(call inherit-product, build/target/product/verity.mk)
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
