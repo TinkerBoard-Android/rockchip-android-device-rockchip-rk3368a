@@ -9,5 +9,3 @@
 /dev/block/platform/ff0f0000.dwmmc/by-name/boot u:object_r:boot_block_device:s0
 /dev/block/platform/ff0f0000.dwmmc/by-name/recovery u:object_r:recovery_block_device:s0
 
-#for pvr gpu
-/vendor/bin/pvrsrvctl           u:object_r:pvrsrvctl_exec:s0
