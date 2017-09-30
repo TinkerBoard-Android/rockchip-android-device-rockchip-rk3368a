@@ -57,7 +57,7 @@ endif
 
 # Sensors
 BOARD_SENSOR_ST := true
-BOARD_SENSOR_MPU := false
+BOARD_SENSOR_MPU_VR := false
 BOARD_SENSOR_MPU_PAD := false
 
 BOARD_USES_GENERIC_INVENSENSE := false
