@@ -1,4 +1,5 @@
 on property:sys.boot_completed=1
+    chmod 0666 /sys/class/devfreq/ffa30000.rogue-g6110/governor
     chown system system /sys/class/devfreq/ffa30000.rogue-g6110/governor
     chown system system /sys/class/devfreq/ffa30000.rogue-g6110/min_freq
     chown system system /sys/class/devfreq/ffa30000.rogue-g6110/max_freq
