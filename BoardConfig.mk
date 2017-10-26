@@ -79,7 +79,7 @@ ifeq ($(HOST_OS),linux)
     ifeq ($(TARGET_BUILD_VARIANT),user)
         WITH_DEXPREOPT := true
     else
-        WITH_DEXPREOPT := false
+        WITH_DEXPREOPT := true
     endif
 endif
 
@@ -101,4 +101,8 @@ BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 
 # Google Service and frp overlay
 BUILD_WITH_GOOGLE_MARKET := false
+BUILD_WITH_GOOGLE_MARKET_ALL := false
 BUILD_WITH_GOOGLE_FRP := false
+
+# Add widevine support
+BUILD_WITH_WIDEVINE := true
