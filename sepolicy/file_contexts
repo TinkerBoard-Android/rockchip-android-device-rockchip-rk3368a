@@ -8,4 +8,4 @@
 /dev/block/platform/ff0f0000.dwmmc/by-name/userdata u:object_r:userdata_block_device:s0
 /dev/block/platform/ff0f0000.dwmmc/by-name/boot u:object_r:boot_block_device:s0
 /dev/block/platform/ff0f0000.dwmmc/by-name/recovery u:object_r:recovery_block_device:s0
-
+/dev/block/platform/ff0f0000.dwmmc/by-name/misc u:object_r:misc_block_device:s0
