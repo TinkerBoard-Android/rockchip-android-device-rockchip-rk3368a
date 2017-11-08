@@ -74,14 +74,9 @@ endif
 endif
 
 ENABLE_CPUSETS := true
-# Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-    ifeq ($(TARGET_BUILD_VARIANT),user)
-        WITH_DEXPREOPT := true
-    else
-        WITH_DEXPREOPT := false
-    endif
-endif
+
+# Enable Dex compile opt as default
+WITH_DEXPREOPT := true
 
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false
@@ -100,9 +95,9 @@ PRODUCT_HAVE_OPTEE ?= false
 BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 
 # Google Service and frp overlay
-BUILD_WITH_GOOGLE_MARKET := false
+BUILD_WITH_GOOGLE_MARKET := true
 BUILD_WITH_GOOGLE_MARKET_ALL := false
-BUILD_WITH_GOOGLE_FRP := false
+BUILD_WITH_GOOGLE_FRP := true
 
 # Add widevine support
 BUILD_WITH_WIDEVINE := true
