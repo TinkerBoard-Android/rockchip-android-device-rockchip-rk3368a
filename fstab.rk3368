@@ -1,0 +1,2 @@
+# For sdmmc
+/devices/platform/ff0c0000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
