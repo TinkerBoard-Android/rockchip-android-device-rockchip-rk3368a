@@ -101,3 +101,6 @@ BUILD_WITH_GOOGLE_FRP := true
 
 # Add widevine support
 BUILD_WITH_WIDEVINE := true
+
+# camera enable
+BOARD_CAMERA_SUPPORT := true
