@@ -17,8 +17,7 @@
 PRODUCT_PACKAGES += \
     memtrack.$(TARGET_BOARD_PLATFORM) \
     WallpaperPicker \
-    Launcher3 \
-    Lightning
+    Launcher3
 
 #$_rbox_$_modify_$_zhengyang: add displayd
 PRODUCT_PACKAGES += \
@@ -40,11 +39,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
     device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
-
-#Add vulkan configuration
-PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_0_3.xml \
-        frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
@@ -95,5 +89,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 ro.factory.tool=0 \
                 ro.kernel.android.checkjni=0 \
                 ro.sf.lcd_density=240 \
-                ro.adb.secure=0 \
                 persist.enable_task_snapshots=false
