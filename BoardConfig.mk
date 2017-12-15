@@ -30,6 +30,7 @@ TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3368/overlay
 
@@ -104,3 +105,4 @@ BUILD_WITH_WIDEVINE := true
 
 # camera enable
 BOARD_CAMERA_SUPPORT := true
+ALLOW_MISSING_DEPENDENCIES=true
