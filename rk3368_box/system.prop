@@ -45,3 +45,9 @@ ro.factory.tool=0
 #set default lcd density for rk3368 box product
 ro.sf.lcd_density=213
 #ro.adb.secure =0
+sys.hwc.enable=1
+#set wifi contry code
+ro.boot.wificountrycode=CN
+#set for video optimize 
+sys.video.netBuffer=20
+sys.video.refFrameMode=1

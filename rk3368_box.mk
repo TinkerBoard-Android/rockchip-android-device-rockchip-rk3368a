@@ -39,3 +39,6 @@ PRODUCT_HAVE_OPTEE := true
 # TV Input HAL
 PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rk3368_box/init.box.rc:root/init.box.rc
