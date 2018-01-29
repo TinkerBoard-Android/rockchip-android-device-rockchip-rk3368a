@@ -100,8 +100,8 @@ BUILD_WITH_GOOGLE_MARKET := true
 BUILD_WITH_GOOGLE_MARKET_ALL := false
 BUILD_WITH_GOOGLE_FRP := true
 
-# Add widevine support
-BUILD_WITH_WIDEVINE := true
+# Add widevine L3 support
+BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 # camera enable
 BOARD_CAMERA_SUPPORT := true
