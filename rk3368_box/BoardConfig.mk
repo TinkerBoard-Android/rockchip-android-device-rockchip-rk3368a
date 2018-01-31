@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+
+TARGET_BOARD_PLATFORM_PRODUCT := box
+
 # Use the non-open-source parts, if they're present
 -include vendor/rockchip/rk3368/BoardConfigVendor.mk
 -include device/rockchip/common/BoardConfig.mk
@@ -86,7 +89,7 @@ ALLOW_MISSING_DEPENDENCIES=true
 BOARD_SUPPORT_VP9 := false
 BOARD_SUPPORT_VP6 := false
 
-TARGET_BOARD_PLATFORM_PRODUCT := box
+#TARGET_BOARD_PLATFORM_PRODUCT := box
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false
 
