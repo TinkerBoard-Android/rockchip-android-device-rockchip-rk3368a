@@ -31,9 +31,8 @@ PRODUCT_MANUFACTURER := rockchip
 PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
 
-#PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.version = 1.0.0 \
-    ro.product.ota.host = www.rockchip.com:2300
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.hwc.device.primary=HDMI-A,TV
 
 PRODUCT_HAVE_OPTEE := true
 # TV Input HAL
