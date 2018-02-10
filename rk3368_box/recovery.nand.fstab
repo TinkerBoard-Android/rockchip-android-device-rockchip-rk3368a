@@ -21,4 +21,4 @@
 /dev/block/rknand_recovery              /recovery            mtd             defaults                  defaults
 /dev/block/rknand_backup                /backup              mtd             defaults                  defaults
 /dev/block/rknand_trust                 /trust               mtd             defaults                  defaults
-/dev/block/rknand_baseparamer           /baseparamer         mtd             defaults                  defaults
+/dev/block/rknand_baseparameter           /baseparameter	mtd             defaults                  defaults
