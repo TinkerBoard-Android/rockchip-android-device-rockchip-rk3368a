@@ -51,6 +51,10 @@ ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
 
 PRODUCT_COPY_FILES += \
        device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
+
+# Choose TEE storage typ
+PRODUCT_PROPERTY_OVERRIDES += ro.tee.storage=rkss
+
 endif
 
 #
