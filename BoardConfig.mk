@@ -117,7 +117,7 @@ BUILD_WITH_GOOGLE_FRP := false
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 # camera enable
-BOARD_CAMERA_SUPPORT := false
+BOARD_CAMERA_SUPPORT := true
 ALLOW_MISSING_DEPENDENCIES=true
 
 #Config omx to support codec type.
@@ -125,4 +125,4 @@ BOARD_SUPPORT_VP9 := false
 BOARD_SUPPORT_VP6 := false
 
 #for camera autofocus support
-CAMERA_SUPPORT_AUTOFOCUS=false
+CAMERA_SUPPORT_AUTOFOCUS=true
