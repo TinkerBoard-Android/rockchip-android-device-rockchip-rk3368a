@@ -67,9 +67,9 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 # source environment and chose target product
 DEVICE=`get_build_var TARGET_PRODUCT`
 BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
-UBOOT_DEFCONFIG=rk3399
+UBOOT_DEFCONFIG=rk3368
 KERNEL_DEFCONFIG=rockchip_defconfig
-KERNEL_DTS=rk3399-sapphire-excavator-edp-avb
+KERNEL_DTS=rk3368-xikp-avb
 PACK_TOOL_DIR=RKTools/linux/Linux_Pack_Firmware
 IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
 export PROJECT_TOP=`gettop`
@@ -106,6 +106,9 @@ else
     exit 1
 fi
 fi
+
+echo "package resoure.img with charger images"
+cd u-boot && ./pack_resource.sh ../kernel/resource.img && cp resource.img ../kernel/resource.img && cd -
 
 # build android
 if [ "$BUILD_ANDROID" = true ] ; then
