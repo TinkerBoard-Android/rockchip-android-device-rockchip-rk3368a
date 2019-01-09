@@ -18,6 +18,7 @@ BUILD_ANDROID=false
 BUILD_UPDATE_IMG=false
 BUILD_OTA=false
 BUILD_PACKING=false
+BUILD_VARIANT=userdebug
 
 
 # check pass argument
@@ -66,7 +67,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 # source environment and chose target product
 DEVICE=`get_build_var TARGET_PRODUCT`
-BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
+BUILD_NUMBER=`get_build_var BUILD_NUMBER`
+BUILD_ID=`get_build_var BUILD_ID`
 UBOOT_DEFCONFIG=rk3368
 KERNEL_DEFCONFIG=rockchip_defconfig
 KERNEL_DTS=rk3368-xikp-avb
@@ -74,11 +76,11 @@ PACK_TOOL_DIR=RKTools/linux/Linux_Pack_Firmware
 IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
 export PROJECT_TOP=`gettop`
 
-#lunch $DEVICE-$BUILD_VARIANT
+lunch $DEVICE-$BUILD_VARIANT
 
 PLATFORM_VERSION=`get_build_var PLATFORM_VERSION`
 DATE=$(date  +%Y%m%d.%H%M)
-STUB_PATH=Image/"$KERNEL_DTS"_"$PLATFORM_VERSION"_"$DATE"_RELEASE_TEST
+STUB_PATH=Image/"$DEVICE"_"$PLATFORM_VERSION"_"$BUILD_VARIANT"_"$DATE"_RELEASE_TEST
 STUB_PATH="$(echo $STUB_PATH | tr '[:lower:]' '[:upper:]')"
 export STUB_PATH=$PROJECT_TOP/$STUB_PATH
 export STUB_PATCH_PATH=$STUB_PATH/PATCHES
@@ -86,7 +88,7 @@ export STUB_PATCH_PATH=$STUB_PATH/PATCHES
 # build uboot
 if [ "$BUILD_UBOOT" = true ] ; then
 echo "start build uboot"
-cd u-boot && ./make.sh $UBOOT_DEFCONFIG && cd -
+cd u-boot && make clean &&  make mrproper &&  make distclean && ./make.sh $UBOOT_DEFCONFIG && cd -
 if [ $? -eq 0 ]; then
     echo "Build uboot ok!"
 else
@@ -98,7 +100,7 @@ fi
 # build kernel
 if [ "$BUILD_KERNEL" = true ] ; then
 echo "Start build kernel"
-cd kernel && make ARCH=arm64 $KERNEL_DEFCONFIG && make ARCH=arm64 $KERNEL_DTS.img -j24 && cd -
+cd kernel && make clean && make ARCH=arm64 $KERNEL_DEFCONFIG && make ARCH=arm64 $KERNEL_DTS.img -j64 && cd -
 if [ $? -eq 0 ]; then
     echo "Build kernel ok!"
 else
@@ -114,7 +116,7 @@ cd u-boot && ./pack_resource.sh ../kernel/resource.img && cp resource.img ../ker
 if [ "$BUILD_ANDROID" = true ] ; then
 echo "start build android"
 make installclean
-make -j24
+make -j64
 if [ $? -eq 0 ]; then
     echo "Build android ok!"
 else
@@ -181,7 +183,8 @@ mkdir -p $STUB_PATH/IMAGES/
 cp $IMAGE_PATH/* $STUB_PATH/IMAGES/
 cp build.sh $STUB_PATH/build.sh
 #Save build command info
-echo "UBOOT:  defconfig: $UBOOT_DEFCONFIG" >> $STUB_PATH/build_cmd_info
-echo "KERNEL: defconfig: $KERNEL_DEFCONFIG, dts: $KERNEL_DTS" >> $STUB_PATH/build_cmd_info
-echo "ANDROID:$DEVICE-$BUILD_VARIANT" >> $STUB_PATH/build_cmd_info
+echo "UBOOT:  defconfig: $UBOOT_DEFCONFIG" >> $STUB_PATH/build_cmd_info.txt
+echo "KERNEL: defconfig: $KERNEL_DEFCONFIG, dts: $KERNEL_DTS" >> $STUB_PATH/build_cmd_info.txt
+echo "ANDROID:$DEVICE-$BUILD_VARIANT" >> $STUB_PATH/build_cmd_info.txt
+echo "FINGER:$BUILD_ID/$BUILD_NUMBER/$BUILD_VARIANT" >> $STUB_PATH/build_cmd_info.txt
 fi
