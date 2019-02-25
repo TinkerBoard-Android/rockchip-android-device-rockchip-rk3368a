@@ -94,4 +94,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 ro.kernel.android.checkjni=0 \
                 ro.sf.lcd_density=240 \
                 ro.build.shutdown_timeout=0 \
-                persist.enable_task_snapshots=false
+                persist.enable_task_snapshots=false \
+                ro.vendor.sdkversion = $(CURRENT_SDK_VERSION)
