@@ -120,6 +120,3 @@ BOARD_SUPPORT_VP6 := false
 
 #for camera autofocus support
 CAMERA_SUPPORT_AUTOFOCUS=true
-
-#enable pcba default
-TARGET_ROCKCHIP_PCBATEST := true
