@@ -75,7 +75,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.vendor.nrdp.modelgroup=NEXUSPLAYERFUGU \
     vendor.hwc.device.primary=HDMI-A,TV \
-    ro.vendor.sdkversion=RK3368_ANDROID9.0_BOX_V1.0
+    sys.video.maxMemCapacity=165 \
+    sys.video.refFrameMode=1 \
+    ro.vendor.sdkversion=$(CURRENT_SDK_VERSION)
 
 ifeq ($(TARGET_BOARD_PLATFORM_PRODUCT), box)
 PRODUCT_PROPERTY_OVERRIDES += \
