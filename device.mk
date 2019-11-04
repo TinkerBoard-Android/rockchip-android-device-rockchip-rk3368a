@@ -33,11 +33,15 @@ ifeq ($(HOST_OS),linux)
   TARGET_USERIMAGES_USE_F2FS := true
 endif
 
+ PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.recovery.rk30board.rc:recovery/root/init.recovery.rk30board.rc \
+    vendor/rockchip/common/bin/$(TARGET_ARCH)/busybox:recovery/root/sbin/busybox \
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3368.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3368.rc \
-    $(LOCAL_PATH)/init.rk30board.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk30board.usb.rc \
+    $(LOCAL_PATH)/init.rk3368.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3368.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
+    device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # setup dalvik vm configs.
@@ -56,6 +60,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += ro.tee.storage=rkss
 
 endif
+
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.memtrack@1.0-impl \
+    memtrack.$(TARGET_BOARD_PLATFORM)
 
 #
 #add Rockchip properties here

@@ -16,9 +16,8 @@
 
 # Use the non-open-source parts, if they're present
 -include vendor/rockchip/rk3368/BoardConfigVendor.mk
--include device/rockchip/common/BoardConfig.mk
 
-CURRENT_SDK_VERSION := RK3368_ANDROID9.0_MID_V1.0
+CURRENT_SDK_VERSION := RK3368_ANDROID10.0_MID_V1.0
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -34,9 +33,13 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a7
 
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
-PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk3368/overlay
+BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
+PRODUCT_KERNEL_DTS ?= rk3368-xikp-avb.dts
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
 
-BOARD_AVB_ENABLE := true
+SF_PRIMARY_DISPLAY_ORIENTATION := 0
+
+BOARD_AVB_ENABLE := false
 
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
@@ -120,3 +123,9 @@ BOARD_SUPPORT_VP6 := false
 
 #for camera autofocus support
 CAMERA_SUPPORT_AUTOFOCUS=false
+
+ifeq ($(strip $(BOARD_USES_AB_IMAGE)), true)
+    DEVICE_MANIFEST_FILE := device/rockchip/rk3368/manifest_ab.xml
+else
+    DEVICE_MANIFEST_FILE := device/rockchip/rk3368/manifest.xml
+endif
