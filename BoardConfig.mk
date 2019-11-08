@@ -34,8 +34,10 @@ TARGET_2ND_CPU_VARIANT := cortex-a7
 
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
-PRODUCT_KERNEL_DTS ?= rk3368-xikp-avb.dts
+PRODUCT_KERNEL_DTS ?= rk3368-xikp-avb
 PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig
+RODUCT_UBOOT_CONFIG ?= rk3368
+RODUCT_KERNEL_ARCH ?= arm64
 
 SF_PRIMARY_DISPLAY_ORIENTATION := 0
 
