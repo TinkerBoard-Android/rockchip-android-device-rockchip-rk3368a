@@ -16,7 +16,7 @@
 
 # First lunching is Q, api_level is 29
 PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_FSTAB_TEMPLATE := $(LOCAL_PATH)/fstab.in
+PRODUCT_SDMMC_DEVICE := ff0c0000.dwmmc
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
 PRODUCT_BOOT_DEVICE := ff0f0000.dwmmc,ff400000.nandc
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
