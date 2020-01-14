@@ -15,7 +15,6 @@
 #
 
 PRODUCT_PACKAGES += \
-    memtrack.$(TARGET_BOARD_PLATFORM) \
     WallpaperPicker \
     Launcher3
 
@@ -60,11 +59,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += ro.tee.storage=rkss
 
 endif
-
-PRODUCT_PACKAGES += \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.memtrack@1.0-impl \
-    memtrack.$(TARGET_BOARD_PLATFORM)
 
 #
 #add Rockchip properties here
