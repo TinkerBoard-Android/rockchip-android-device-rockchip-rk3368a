@@ -125,6 +125,8 @@ MALLOC_SVELTE := true
 BOARD_SUPPORT_VP9 := false
 BOARD_SUPPORT_VP6 := false
 
+BOARD_HAS_RK_4G_MODEM := true
+
 #for camera autofocus support
 CAMERA_SUPPORT_AUTOFOCUS=false
 
