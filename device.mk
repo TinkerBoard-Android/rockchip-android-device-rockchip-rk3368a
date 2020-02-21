@@ -43,6 +43,26 @@ PRODUCT_COPY_FILES += \
     device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
+ifeq ($(BOARD_CAMERA_SUPPORT),true)
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.xml \
+	frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml
+
+PRODUCT_PACKAGES += \
+	librkisp_aec \
+	librkisp_awb \
+	librkisp_af
+endif
+
+ifeq ($(BOARD_CAMERA_SUPPORT_EXT),true)
+PRODUCT_COPY_FILES += \
+	device/rockchip/$(TARGET_BOARD_PLATFORM)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
+	frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
+
+PRODUCT_PACKAGES += \
+     android.hardware.camera.provider@2.4-external-service
+endif
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
