@@ -26,6 +26,7 @@ include device/rockchip/rk3368/rk3368_Android10/BoardConfig.mk
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/rockchip/rk3368/device.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_CHARACTERISTICS := tablet
 
