@@ -22,18 +22,18 @@ PRODUCT_BOOT_DEVICE := ff0f0000.dwmmc,ff400000.nandc
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
 include device/rockchip/common/BoardConfig.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-include device/rockchip/rk3368/rk3368_Android10/BoardConfig.mk
+include device/rockchip/rk3368a/rk3368a_Android10/BoardConfig.mk
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/rockchip/rk3368/device.mk)
+$(call inherit-product, device/rockchip/rk3368a/device.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_NAME := rk3368_Android10
-PRODUCT_DEVICE := rk3368_Android10
+PRODUCT_NAME := rk3368a_Android10
+PRODUCT_DEVICE := rk3368a_Android10
 PRODUCT_BRAND := rockchip
-PRODUCT_MODEL := rk3368-Android10
+PRODUCT_MODEL := rk3368a-Android10
 PRODUCT_MANUFACTURER := rockchip
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 

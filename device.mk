@@ -40,7 +40,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3368.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3368.rc \
     $(LOCAL_PATH)/init.rk3368.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3368.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/rk3368/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
+    device/rockchip/rk3368a/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 ifeq ($(BOARD_CAMERA_SUPPORT),true)
@@ -67,7 +67,7 @@ endif
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 
-$(call inherit-product-if-exists, vendor/rockchip/rk3368/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/rockchip/rk3368a/device-vendor.mk)
 
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
