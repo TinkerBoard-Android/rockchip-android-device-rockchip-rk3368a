@@ -1,7 +1,5 @@
 include device/rockchip/rk3368a/BoardConfig.mk
-BUILD_WITH_GOOGLE_GMS_EXPRESS := false
 
-BOARD_AVB_ENABLE := false
 BOARD_USES_AB_IMAGE := flase
 BOARD_RECORD_COMMIT_ID := flase
 BOARD_GYROSCOPE_SENSOR_SUPPORT := true

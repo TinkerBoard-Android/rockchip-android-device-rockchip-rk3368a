@@ -39,7 +39,6 @@ SF_PRIMARY_DISPLAY_ORIENTATION := 0
 
 BOARD_AVB_ENABLE := false
 
-
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
 TARGET_BOARD_PLATFORM := rk3368
@@ -103,6 +102,7 @@ BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 # Google Service and frp overlay
 BUILD_WITH_GOOGLE_MARKET := false
 BUILD_WITH_GOOGLE_MARKET_ALL := false
+BUILD_WITH_GOOGLE_GMS_EXPRESS := false
 BUILD_WITH_GOOGLE_FRP := false
 
 # Add widevine L3 support
@@ -110,7 +110,6 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 # camera enable
 BOARD_CAMERA_SUPPORT := true
-BOARD_CAMERA_SUPPORT_EXT := true
 ALLOW_MISSING_DEPENDENCIES=true
 
 # enable SVELTE malloc
@@ -120,9 +119,5 @@ MALLOC_SVELTE := true
 BOARD_SUPPORT_VP9 := false
 BOARD_SUPPORT_VP6 := false
 
-BOARD_HAS_RK_4G_MODEM := true
-
 #for camera autofocus support
 CAMERA_SUPPORT_AUTOFOCUS=false
-
-DEVICE_MANIFEST_FILE := device/rockchip/rk3368a/manifest.xml

@@ -41,7 +41,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3368.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3368.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
     device/rockchip/rk3368a/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    device/rockchip/rk3368a/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 ifeq ($(BOARD_CAMERA_SUPPORT),true)
 PRODUCT_COPY_FILES += \
@@ -56,7 +56,7 @@ endif
 
 ifeq ($(BOARD_CAMERA_SUPPORT_EXT),true)
 PRODUCT_COPY_FILES += \
-	device/rockchip/$(TARGET_BOARD_PLATFORM)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
+	device/rockchip/rk3368a/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
 	frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
 PRODUCT_PACKAGES += \
