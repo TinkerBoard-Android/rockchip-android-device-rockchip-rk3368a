@@ -16,35 +16,36 @@
 
 # First lunching is Q, api_level is 29
 PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_SDMMC_DEVICE := ff0c0000.dwmmc
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
-PRODUCT_BOOT_DEVICE := ff0f0000.dwmmc,ff400000.nandc
+
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
 include device/rockchip/common/BoardConfig.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-include device/rockchip/rk3368a/rk3368a_Android10/BoardConfig.mk
-# Inherit from those products. Most specific first.
+include device/rockchip/rk3368a/rk3368a_qgo/BoardConfig.mk
 $(call inherit-product, device/rockchip/rk3368a/device.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_NAME := rk3368a_Android10
-PRODUCT_DEVICE := rk3368a_Android10
+PRODUCT_NAME := rk3368a_qgo
+PRODUCT_DEVICE := rk3368a_qgo
 PRODUCT_BRAND := rockchip
-PRODUCT_MODEL := rk3368a-Android10
+PRODUCT_MODEL := rk3368a_qgo
 PRODUCT_MANUFACTURER := rockchip
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
-PRODUCT_PACKAGES += \
-    SoundRecorder
+# Enable DM file preopting to reduce first boot time
+PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
-PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.version = 1.0.0 \
-    ro.product.ota.host = www.rockchip.com:2300 \
-    ro.sf.lcd_density=280
+# Save space for Go-device
+DONT_UNCOMPRESS_PRIV_APPS_DEXS := true
+#
+## add Rockchip properties
+#
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=160
+# Reduces GC frequency of foreground apps by 50%
+PRODUCT_PROPERTY_OVERRIDES += dalvik.vm.foreground-heap-growth-multiplier=2.0
+# set zygote
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote32

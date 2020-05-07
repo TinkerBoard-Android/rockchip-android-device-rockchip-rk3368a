@@ -13,13 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include device/rockchip/rk3368a/BoardConfig.mk
+BUILD_WITH_GO_OPT := true
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rk3368a_Android10/rk3368a_Android10.mk \
-    $(LOCAL_DIR)/rk3368a_qgo/rk3368a_qgo.mk \
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := cortex-a53
+TARGET_CPU_SMP := true
 
-COMMON_LUNCH_CHOICES := \
-    rk3368a_Android10-userdebug \
-    rk3368a_Android10-user \
-    rk3368a_qgo-userdebug \
-    rk3368a_qgo-user \
+PRODUCT_KERNEL_DTS := rk3368-tablet
+PRODUCT_KERNEL_CONFIG := rockchip_defconfig android-10-go.config

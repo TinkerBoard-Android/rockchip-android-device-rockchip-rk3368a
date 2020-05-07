@@ -23,6 +23,9 @@ PRODUCT_PACKAGES += \
     displayd \
     libion
 
+PRODUCT_COPY_FILES += \
+    hardware/realtek/rtkbt/vendor/etc/bluetooth/rtkbt_S0.conf:vendor/etc/bluetooth/rtkbt.conf
+
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
@@ -62,10 +65,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
      android.hardware.camera.provider@2.4-external-service
 endif
-
-# setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3368a/device-vendor.mk)
 
@@ -115,7 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 wifi.supplicant_scan_interval=15 \
                 ro.factory.tool=0 \
                 ro.kernel.android.checkjni=0 \
-                ro.sf.lcd_density=240 \
                 ro.build.shutdown_timeout=0 \
                 persist.enable_task_snapshots=false \
                 ro.vendor.sdkversion = $(CURRENT_SDK_VERSION)
