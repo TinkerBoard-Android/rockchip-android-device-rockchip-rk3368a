@@ -28,7 +28,7 @@ TARGET_CPU_SMP := true
 
 TARGET_PREBUILT_KERNEL := kernel/arch/arm64/boot/Image
 BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm64/boot/dts/rockchip
-PRODUCT_KERNEL_DTS ?= rk3368-808-evb
+PRODUCT_KERNEL_DTS ?= rk3368-tablet
 PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig android-10.config
 PRODUCT_UBOOT_CONFIG ?= rk3368
 PRODUCT_KERNEL_ARCH ?= arm64

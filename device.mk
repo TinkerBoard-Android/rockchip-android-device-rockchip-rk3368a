@@ -114,6 +114,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 wifi.supplicant_scan_interval=15 \
                 ro.factory.tool=0 \
                 ro.kernel.android.checkjni=0 \
+                ro.sf.lcd_density=160 \
                 ro.build.shutdown_timeout=0 \
                 persist.enable_task_snapshots=false \
                 ro.vendor.sdkversion = $(CURRENT_SDK_VERSION)
