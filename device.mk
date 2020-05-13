@@ -15,7 +15,6 @@
 #
 
 PRODUCT_PACKAGES += \
-    WallpaperPicker \
     Launcher3
 
 #$_rbox_$_modify_$_zhengyang: add displayd
