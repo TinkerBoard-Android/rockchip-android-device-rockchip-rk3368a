@@ -23,5 +23,5 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_SMP := true
 
-PRODUCT_KERNEL_DTS := rk3368-tablet
+PRODUCT_KERNEL_DTS := rk3368a-817-tablet
 PRODUCT_KERNEL_CONFIG := rockchip_defconfig android-10-go.config
